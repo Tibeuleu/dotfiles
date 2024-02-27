@@ -1,7 +1,7 @@
 # vim: filetype=sh
 alias cac="cd ${XDG_CACHE_HOME:-$HOME/.cache} && ls -a" \
 cf="cd ${XDG_CONFIG_HOME:-$HOME/.config} && ls -a" \
-cfv="cd ${XDG_CONFIG_HOME:-$HOME/.config}/nvim && ls -a" \
+cfv="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/" \
 cl="cd ${XDG_LOCAL_HOME:-$HOME/.local} && ls -a" \
 dt="cd ${XDG_DATA_HOME:-$HOME/.local/share} && ls -a" \
 sc="cd ${XDG_LOCAL_HOME:-$HOME/.local}/bin && ls -a" \

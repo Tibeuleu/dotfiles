@@ -2,71 +2,59 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-#[record]
-#command=cat /tmp/recordingicon
-#interval=once
-#signal=9
-
-[music]
+[sb-music]
 interval=30
 signal=11
 
-[news]
+[sb-news]
 interval=once
 signal=6
 
-#[iplocate]
-#interval=30
+# [sb-iplocate]
+# interval=30
 
-#[nettraf]
-#interval=1
+# [sb-nettraf]
+# interval=1
 
-[pacpackages]
+[sb-pacpackages]
 interval=once
 signal=8
 
-#[torrent]
-#interval=20
-#signal=7
+# [sb-torrent]
+# interval=20
+# signal=7
 
-#[weather]
-#interval=18000
-#signal=5
+# [sb-forecast]
+# interval=18000
+# signal=5
 
-#[mailbox]
-#interval=180
-#signal=12
-
-[memory]
+[sb-memory]
 interval=30
 
-[cpu]
+[sb-cpu]
 interval=15
 
-[volume]
+[sb-volume]
 interval=once
 signal=10
 
-#[disk]
-#interval=60
-#command=disk /
+# [sb-disk]
+# interval=60
+# command=sb-disk /
 
-#[disk]
-#interval=60
-#command=disk /home
+# [sb-disk]
+# interval=60
+# command=sb-disk /media
 
-[battery]
+[sb-battery]
+command=sb-battery BAT0
 interval=5
-command=battery BAT0
 
-[clock]
+[sb-clock]
 interval=30
 
-[kbselect]
+[sb-kbselect]
 interval=10
 
-[internet]
+[sb-internet]
 interval=10
-
-#[help-icon]
-#interval=once
