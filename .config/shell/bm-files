@@ -1,0 +1,21 @@
+# These files automatically update when edited/saved in vim:
+
+# keys	filename				description
+bf	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookmarked files
+bd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
+cfi	${XDG_CONFIG_HOME:-$HOME/.config}/i3/config		# i3: the window manager i3
+cfib	${XDG_CONFIG_HOME:-$HOME/.config}/i3blocks/config	# i3blocks: the status bar for i3
+cfx	${XDG_CONFIG_HOME:-$HOME/.config}/x11/Xresources	# Colors, themes and variables for X11
+
+# These do not update automatically, but on the next new instance of a program:
+
+cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc		# aliases used by zsh (and potentially other shells)
+cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc		# lf (file browser) config
+cfL	${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope		# lf's scope/preview file
+cfmb	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/bindings	# ncmpcpp (music player) keybinds file
+cfmc	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/config	# ncmpcpp (music player) config
+cfn	${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/config	# newsboat (RSS reader)
+cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile		# profile file for login settings for zsh
+cfu	${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls		# RSS urls for newsboat
+cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer) key/script handler
+cfz	$ZDOTDIR/.zshrc						# zsh (shell) config

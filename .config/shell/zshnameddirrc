@@ -1,0 +1,14 @@
+hash -d cac=${XDG_CACHE_HOME:-$HOME/.cache} 
+hash -d cf=${XDG_CONFIG_HOME:-$HOME/.config} 
+hash -d cfv=${XDG_CONFIG_HOME:-$HOME/.config}/nvim 
+hash -d cl=${XDG_LOCAL_HOME:-$HOME/.local} 
+hash -d dt=${XDG_DATA_HOME:-$HOME/.local/share} 
+hash -d sc=${XDG_LOCAL_HOME:-$HOME/.local}/bin 
+hash -d src=${XDG_LOCAL_HOME:-$HOME/.local}/src 
+hash -d h=$HOME 
+hash -d d=${XDG_DOCUMENTS_DIR:-$HOME/Documents} 
+hash -d D=${XDG_DOWNLOAD_DIR:-$HOME/Downloads} 
+hash -d m=${XDG_MUSIC_DIR:-$HOME/Music} 
+hash -d pp=${XDG_PICTURES_DIR:-$HOME/Pictures} 
+hash -d vv=${XDG_VIDEOS_DIR:-$HOME/Videos} 
+hash -d mn=/mnt 
