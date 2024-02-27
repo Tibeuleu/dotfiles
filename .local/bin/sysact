@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# A dmenu wrapper script for system functions.
+
+# For non-systemd init systems.
+case "$(readlink -f /sbin/init)" in
+	*runit*) hib="doas_askpass zzz" ;;
+	*openrc*) hib="loginctl suspend" ; reb="loginctl reboot"; shut="loginctl poweroff";;
+esac
+
+cmds="\
+🔒 lock		slock
+🐻 hibernate	${hib:-doas_askpass systemctl suspend}
+🔃 reboot	${reb:-doas_askpass reboot}
+🖥  shutdown	${shut:-doas_askpass shutdown -h now}"
+
+choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu)" || exit 1
+
+`echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-`

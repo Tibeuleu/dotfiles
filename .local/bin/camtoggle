@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#pkill -f /dev/video || mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --demuxer-lavf-format=v4l2 --geometry=-0-0 --autofit=30% --title="mpvfloat" --profile=low-latency --untimed /dev/video0
+
+onecam() {
+	mpv --no-osc --no-input-default-bindings --input-conf=/dev/null mpv --demuxer-lavf-format=v4l2 --geometry=-0-0 --autofit=30% --title="mpvfloat" --profile=low-latency --untimed $1
+	}
+
+#Get all possible cameras
+allposs=$(v4l2-ctl --list-devices | sed ':a;N;$!ba;s/):\n/):/g')
+cameras=$(echo "$allposs" | awk '/):/ {print $1}')
+
+# If there's only one camera
+[ "$(echo "$cameras" | wc -l)" -lt 2 ] &&
+	{ input=$(v4l2-ctl --list-devices | sed -n "/^$cameras/,/video*/p" | tail -n 1 | awk '{print $1}') ; onecam "$input"; exit ;}
+
+chosen=$(echo "$cameras" | dmenu -i -p "Which camera ?")
+input=$(v4l2-ctl --list-devices | sed -n "/^$chosen/,/video*/p" | tail -n 1 | awk '{print $1}')
+
+onecam "$input"
