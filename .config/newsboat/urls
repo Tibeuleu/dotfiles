@@ -1,5 +1,6 @@
-"query:astro-open-new:tags # \"astro\" and tags # \"open-pub\" and unread = \"yes\""
-"query:astro-priv-new:tags # \"astro\" and tags # \"priv-pub\" and unread = \"yes\""
+"query:astro-interesting:tags # \"astro\" and (content # \"AGN\" or content # \"polari\") and unread = \"yes\"" astro
+"query:astro-open-new:tags # \"astro\" and tags # \"open-pub\" and unread = \"yes\"" astro open-pub
+"query:astro-priv-new:tags # \"astro\" and tags # \"priv-pub\" and unread = \"yes\"" astro priv-pub
 https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/meetings/rssFeed astro meeting
 http://arxiv.org/rss/astro-ph "~arXiv.org astro-ph" astro open-pub
 http://feeds.feedburner.com/aa_highlights?format=xml "~Astronomy & Astrophysics" astro priv-pub
