@@ -6,7 +6,7 @@
 # to clean up.
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':'):$HOME/.local/lib/bin"
 
 # Default programs:
 export EDITOR="nvim"
@@ -38,7 +38,10 @@ export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 
 # Xspec and IXPEobssim
-export HEADAS="$HOME/.local/lib/heasoft-6.30.1/x86_64-pc-linux-gnu-libc2.35/"
+export HEADAS="$HOME/.local/lib/heasoft-6.33/x86_64-pc-linux-gnu-libc2.39/"
+export CALDB="https://heasarc.gsfc.nasa.gov/FTP/caldb"
+export CALDBCONFIG="$HOME/.local/lib/heasoft-6.33/caldb.config"
+export CALDBALIAS="$HOME/.local/lib/heasoft-6.33/alias_config.fits"
 export TINYTIM="$HOME/.local/share/tinytim-7.5/"
 export IXPEOBSSIM_ROOT="$HOME/IXPE_analysis/ixpeobssim_latest"
 export IXPEOBSSIM_DATA="$HOME/IXPE_analysis/ixpeobssim_latest/ixpeobssimdata"
