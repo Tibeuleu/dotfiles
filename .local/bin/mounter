@@ -66,10 +66,12 @@ case "$chosen" in
 		chosen="${chosen%% *}"
 		chosen="${chosen:1}"	# This is a bashism.
 		attemptmount || getmount
-		partitiontype="$(lsblk -no "fstype" "$chosen")"
+		partitiontype="$(sudo -A lsblk -no "fstype" "$chosen")"
+        userid="$(id -u)"
+        groupid="$(id -g)"
 		case "$partitiontype" in
-			"vfat") sudo -A mount -t vfat "$chosen" "$mp" -o rw,umask=0000;;
-			*) sudo -A mount "$chosen" "$mp"; user="$(whoami)"; ug="$(groups | awk '{print $1}')"; sudo -A chown "$user":"$ug" "$mp";;
+			"vfat") sudo -A mount -t vfat "$chosen" "$mp" -o rw,uid="$userid",gid="$groupid",umask=0000;;
+			*) sudo -A mount "$chosen" "$mp"; sudo -A chown "$userid":"$groupid" "$mp";;
 		esac
 		# sudo -A mount "$chosen" "$mp" -o uid="$(id -u)",gid="$(id -g)"
 		notify-send "💾Drive Mounted." "$chosen mounted to $mp."

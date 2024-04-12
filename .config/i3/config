@@ -72,11 +72,11 @@ bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec -
 bindsym $mod+w			exec --no-startup-id $BROWSER
 bindsym $mod+Shift+w		exec $term -e nmtui
 
-#bindsym $mod+e			exec --no-startup-id element-desktop
-bindsym $mod+Shift+e		exec --no-startup-id dmenuunicode
+#bindsym $mod+r			exec --no-startup-id element-desktop
+bindsym $mod+Shift+r		exec --no-startup-id dmenuunicode
 
-bindsym $mod+r 			exec $term -e lf
-bindsym $mod+Shift+r		exec $term -e ranger
+bindsym $mod+e 			exec $term -e lf
+bindsym $mod+Shift+e		exec $term -e ranger
 
 #bindsym $mod+y			exec $term -e calcurse
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
