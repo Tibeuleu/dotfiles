@@ -1,6 +1,7 @@
 #show-read-feeds no
 auto-reload yes
 prepopulate-query-feeds yes
+confirm-mark-feed-read no
 
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 

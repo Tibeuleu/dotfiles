@@ -92,12 +92,48 @@ cmp.setup({
         ghost_text = true,
     },
 
-    mapping = cmp.mapping.preset.insert({
-		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-		['<C-y>'] = cmp.mapping.confirm({ select = true }),
-		['<C-Space>'] = cmp.mapping.complete(),
-	}),
+ --    mapping = cmp.mapping.preset.insert({
+	-- 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+	-- 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+	-- 	['<C-y>'] = cmp.mapping.confirm({ select = true }),
+	-- 	['<C-Space>'] = cmp.mapping.complete(),
+	-- }),
+    mapping = {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                if #cmp.get_entries() == 1 then
+                    cmp.confirm({ select = true })
+                else
+                    cmp.select_next_item()
+                end
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            elseif has_words_before() then
+                cmp.complete()
+                if #cmp.get_entries() == 1 then
+                    cmp.confirm({ select = true })
+                end
+            else
+                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+            end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function()
+            if cmp.visible() then
+                if #cmp.get_entries() == 1 then
+                    cmp.confirm({ select = true })
+                else
+                    cmp.select_prev_item()
+                end
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ['<CR>'] = cmp.mapping.confirm({select = true }),
+        ['<C-e>'] = cmp.mapping.abort(),
+    },
 
     snippet = {
         expand = function(args)

@@ -50,4 +50,3 @@ alias \
 	ixpe="cd /home/tibeuleu/IXPE_analysis/Code && clear && ls" \
 	foc="cd /home/tibeuleu/FOC_reduction/Code && clear && ls" \
     config='/usr/bin/git --git-dir=/home/tibeuleu/.cfg/ --work-tree=/home/tibeuleu' \
-
