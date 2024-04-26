@@ -1,12 +1,4 @@
-"query:astro-interesting:tags # \"astro\" and (content # \"AGN\" or content =~ \"polari\") and unread = \"yes\"" astro
-"query:astro-open-new:tags # \"astro\" and tags # \"open-pub\" and unread = \"yes\"" astro open-pub
-"query:astro-priv-new:tags # \"astro\" and tags # \"priv-pub\" and unread = \"yes\"" astro priv-pub
-https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/meetings/rssFeed astro meeting
-http://arxiv.org/rss/astro-ph "~arXiv.org astro-ph" astro open-pub
-http://feeds.feedburner.com/aa_highlights?format=xml "~Astronomy & Astrophysics" astro priv-pub
-https://academic.oup.com/rss/site_5326/3192.xml "~Monthly Noticies of the Astronomical Society" astro priv-pub
-https://iopscience.iop.org/journal/rss/0004-637X "~The Astrophysical Journal" astro priv-pub
-https://www.nature.com/subjects/astronomy-and-astrophysics.rss "~Nature Astronomy" astro priv-pub
-"query:linux-new:tags # \"linux\" and unread = \"yes\""
-https://artixlinux.org/feed.php "~Artix news" linux
-https://www.archlinux.org/feeds/news/ "~Arch news" linux
+"query:astro-interesting:tags # \"Astro\" and (content # \"AGN\" or content =~ \"polari\") and unread = \"yes\"" Astro
+https://rss.tibeuleu.xyz/public.php?op=rss&id=1&is_cat=1&q=&key=y65lgj662b99b41ef29 "~TTRSS-Astro" Astro
+"query:linux-new:tags # \"Linux\" and unread = \"yes\"" Linux
+https://rss.tibeuleu.xyz/public.php?op=rss&id=2&is_cat=1&q=&key=7iafeh662b9d0b1aa17 "~TTRSS-Linux" Linux
