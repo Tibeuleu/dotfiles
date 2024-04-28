@@ -45,8 +45,6 @@ alias \
 	scrcpy="scrcpy --shortcut-mod=lctrl" \
 	anaconda="source $HOME/.anaconda3/bin/activate" \
 	homestuck="./.config/unofficial-homestuck-collection-2.0.7/unofficial-homestuck-collection --no-sandbox 2>&1" \
-	hlup="wg-quick up artixbook" \
-	hldown="wg-quick down artixbook" \
 	ixpe="cd /home/tibeuleu/IXPE_analysis/Code && clear && ls" \
 	foc="cd /home/tibeuleu/FOC_reduction/Code && clear && ls" \
     config='/usr/bin/git --git-dir=/home/tibeuleu/.cfg/ --work-tree=/home/tibeuleu' \

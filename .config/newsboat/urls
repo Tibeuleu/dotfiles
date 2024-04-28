@@ -1,4 +1,3 @@
 "query:astro-interesting:tags # \"Astro\" and (content # \"AGN\" or content =~ \"polari\") and unread = \"yes\"" Astro
-https://rss.tibeuleu.xyz/public.php?op=rss&id=1&is_cat=1&q=&key=y65lgj662b99b41ef29 "~TTRSS-Astro" Astro
 "query:linux-new:tags # \"Linux\" and unread = \"yes\"" Linux
-https://rss.tibeuleu.xyz/public.php?op=rss&id=2&is_cat=1&q=&key=7iafeh662b9d0b1aa17 "~TTRSS-Linux" Linux
+"query:news-new:tags # \"News\" and unread = \"yes\"" News
