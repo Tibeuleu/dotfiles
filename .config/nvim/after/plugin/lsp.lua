@@ -69,9 +69,8 @@ local default_handlers = {
     ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
 }
 
--- this is the function that loads the extra snippets to luasnip
--- from rafamadriz/friendly-snippets
-require('luasnip.loaders.from_vscode').lazy_load()
+-- luasnip for Tab completion
+local luasnip = require('luasnip')
 
 cmp.setup({
     -- No preselection
@@ -92,12 +91,6 @@ cmp.setup({
         ghost_text = true,
     },
 
- --    mapping = cmp.mapping.preset.insert({
-	-- 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	-- 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	-- 	['<C-y>'] = cmp.mapping.confirm({ select = true }),
-	-- 	['<C-Space>'] = cmp.mapping.complete(),
-	-- }),
     mapping = {
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -108,11 +101,6 @@ cmp.setup({
                 end
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
-            elseif has_words_before() then
-                cmp.complete()
-                if #cmp.get_entries() == 1 then
-                    cmp.confirm({ select = true })
-                end
             else
                 fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
