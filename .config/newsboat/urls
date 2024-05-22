@@ -1,3 +1,4 @@
-"query:astro-interesting:tags # \"Astro\" and (content # \"AGN\" or content =~ \"polari\") and unread = \"yes\"" Astro
+"query:to-read:flags # \"p\""
+"query:astro-interesting:tags # \"astro\" and (content # \"agn\" or content =~ \"polari\") and unread = \"yes\"" Astro
 "query:linux-new:tags # \"Linux\" and unread = \"yes\"" Linux
 "query:news-new:tags # \"News\" and unread = \"yes\"" News
