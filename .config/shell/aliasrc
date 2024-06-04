@@ -38,13 +38,10 @@ alias \
 	z="zathura"
 
 alias \
-	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
 	scrcpy="scrcpy --shortcut-mod=lctrl" \
-	anaconda="source $HOME/.anaconda3/bin/activate" \
-	homestuck="./.config/unofficial-homestuck-collection-2.0.7/unofficial-homestuck-collection --no-sandbox 2>&1" \
-	ixpe="cd /home/tibeuleu/IXPE_analysis/Code && clear && ls" \
-	foc="cd /home/tibeuleu/FOC_reduction/Code && clear && ls" \
-    config='/usr/bin/git --git-dir=/home/tibeuleu/.cfg/ --work-tree=/home/tibeuleu' \
+	ixpe="cd $HOME/IXPE_analysis/Code && clear && ls" \
+	foc="cd $HOME/FOC_reduction/Code && clear && ls" \
+    config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=/home/tibeuleu" \
