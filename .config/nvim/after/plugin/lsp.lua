@@ -47,7 +47,7 @@ local servers = {
                         unsafeFixes = false,  -- Whether or not to offer unsafe fixes as code actions. Ignored with the "Fix All" action
 
                         -- Rules that are ignored when a pyproject.toml or ruff.toml is present:
-                        lineLength = 80,  -- Line length to pass to ruff checking and formatting
+                        lineLength = 160,  -- Line length to pass to ruff checking and formatting
                         exclude = { "__about__.py" },  -- Files to be excluded by ruff checking
                         select = { "F" },  -- Rules to be enabled by ruff
                         ignore = { "D210" },  -- Rules to be ignored by ruff

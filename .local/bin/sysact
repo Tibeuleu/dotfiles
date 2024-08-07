@@ -10,7 +10,7 @@ esac
 
 cmds="\
 🔒 lock		slock
-🐻 hibernate	${hib:-doas_askpass systemctl suspend}
+🐻 hibernate	${hib:-doas_askpass loginctl suspend}
 🔃 reboot	${reb:-doas_askpass reboot}
 🖥  shutdown	${shut:-doas_askpass shutdown -h now}"
 

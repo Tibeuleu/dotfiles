@@ -1,4 +1,4 @@
 "query:to-read:flags # \"p\""
 "query:astro-interesting:tags # \"Astro\" and (content # \"agn\" or content =~ \"polari\") and unread = \"yes\"" Astro
 "query:linux-new:tags # \"Linux\" and unread = \"yes\"" Linux
-"query:news-new:tags # \"News\" and unread = \"yes\"" News
+"query:news-new:tags # \"Presse_Alternative\" or tags # \"Presse_Traditionnelle\" or tags # \"Strasbourg\"  and unread = \"yes\"" Presse_Alternative Presse_Traditionnelle
