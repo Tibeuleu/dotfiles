@@ -27,7 +27,6 @@ export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 #export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
-export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
@@ -43,9 +42,9 @@ export CALDB="https://heasarc.gsfc.nasa.gov/FTP/caldb"
 export CALDBCONFIG="$HOME/.local/lib/heasoft-6.33/caldb.config"
 export CALDBALIAS="$HOME/.local/lib/heasoft-6.33/alias_config.fits"
 export TINYTIM="$HOME/.local/share/tinytim-7.5/"
-export IXPEOBSSIM_ROOT="$HOME/IXPE_analysis/ixpeobssim_latest"
-export IXPEOBSSIM_DATA="$HOME/IXPE_analysis/ixpeobssim_latest/ixpeobssimdata"
-export IXPEOBSSIM_AUXFILES="$HOME/IXPE_analysis/ixpeobssim_latest/ixpeobssimauxfiles"
+export IXPEOBSSIM_ROOT="$HOME/IXPE_analysis/ixpeobssim"
+export IXPEOBSSIM_DATA="/tmp/ixpeobssimdata"
+export IXPEOBSSIM_AUXFILES="/tmp/ixpeobssimauxfiles"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
@@ -155,6 +154,3 @@ fi
 
 # Switch escape and caps if tty and no passwd required:
 doas -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
-
-# modifications by HEALPixAutoConf 3.80
-[ -r /home/tibeuleu/.healpix/3_80_Linux/config ] && . /home/tibeuleu/.healpix/3_80_Linux/config
