@@ -16,11 +16,12 @@ require("fidget").setup({
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = {'bashls', 'clangd', 'fortls', 'julials', 'marksman', 'pylsp', 'rust_analyzer', 'texlab'},
+	ensure_installed = {'bashls', 'clangd', 'fortls', 'julials', 'marksman', 'pylsp', 'ruff', 'rust_analyzer', 'texlab'},
 })
-
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+require('mason-nvim-dap').setup({
+    ensure_installed = {'bash', 'cppdbg', 'python'},
+})
+require('dap-python').setup("python")
 
 local servers = {
     bashls = {},
@@ -32,29 +33,32 @@ local servers = {
         settings = {
             pylsp = {
                 plugins = {
-                    pycodestyle = {
-                        ignore = {},
-                        maxLineLength = 160,
-                    },
-                    ruff = {
-                        enabled = true,  -- Enable the plugin
-                        -- executable = "<path-to-ruff-bin>",  -- Custom path to ruff
-                        -- config = "<path_to_custom_ruff_toml>",  -- Custom config for ruff to use
-                        extendSelect = { "I" },  -- Rules that are additionally used by ruff
-                        extendIgnore = { "C90" },  -- Rules that are additionally ignored by ruff
-                        format = { "I" },  -- Rules that are marked as fixable by ruff that should be fixed when running textDocument/formatting
-                        severities = { ["D212"] = "I" },  -- Optional table of rules where a custom severity is desired
-                        unsafeFixes = false,  -- Whether or not to offer unsafe fixes as code actions. Ignored with the "Fix All" action
-
-                        -- Rules that are ignored when a pyproject.toml or ruff.toml is present:
-                        lineLength = 160,  -- Line length to pass to ruff checking and formatting
-                        exclude = { "__about__.py" },  -- Files to be excluded by ruff checking
-                        select = { "F" },  -- Rules to be enabled by ruff
-                        ignore = { "D210" },  -- Rules to be ignored by ruff
-                        perFileIgnores = { ["__init__.py"] = "CPY001" },  -- Rules that should be ignored for specific files
-                        preview = false,  -- Whether to enable the preview style linting and formatting.
-                        targetVersion = "py310",  -- The minimum python version to target (applies for both linting and formatting).
-                    },
+                    autopep8 = { enabled = false, },
+                    flake8 = { enabled = false, },
+                    mccabe = { enabled = false, },
+                    pycodestyle = { enabled = false, },
+                    pyflakes = { enabled = false, },
+                    pylint = { enabled = false, },
+                    yapf = { enabled = false, },
+                },
+            },
+        },
+    },
+    ruff = {
+        filetypes = { "python" },
+        init_options = {
+            settings = {
+                -- configuration = "<path_to_custom_ruff_toml>",  -- Custom config for ruff to use
+                exclude = { "__about__.py" },  -- Files to be excluded by ruff checking
+                lineLength = 160,  -- Line length to pass to ruff checking and formatting
+                organizeImports = true,
+                preview = false,  -- Whether to enable the preview style linting and formatting.
+                lint = {
+                    enable = true,  -- Enable linting
+                    -- select = { "F" },  -- Rules to be enabled by ruff
+                    extendSelect = { "F", "I" },  -- Rules that are additionally used by ruff
+                    ignore = { "D210", "E741", "E743" },  -- Rules to be ignored by ruff
+                    extendIgnore = { "C90" },  -- Rules that are additionally ignored by ruff
                 },
             },
         },
@@ -66,74 +70,11 @@ local servers = {
 -- Default handlers for LSP
 local default_handlers = {
     ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded", focus = false }),
 }
 
 -- luasnip for Tab completion
 local luasnip = require('luasnip')
-
-cmp.setup({
-    -- No preselection
-    preselect = 'None',
-
-    sources = {
-		{name = 'nvim_lsp'},                    -- lsp
-		{name = 'buffer', max_item_count = 5},  -- Text within current buffer
-		{name = 'luasnip', max_item_count = 3}, -- Snippets
-		{name = 'path', max_item_count = 3},    -- File system paths
-	},
-
-    formatting = {
-                expandable_indicator = true,
-            },
-
-    experimental = {
-        ghost_text = true,
-    },
-
-    mapping = {
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                if #cmp.get_entries() == 1 then
-                    cmp.confirm({ select = true })
-                else
-                    cmp.select_next_item()
-                end
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-            end
-        end, { "i", "s" }),
-
-        ["<S-Tab>"] = cmp.mapping(function()
-            if cmp.visible() then
-                if #cmp.get_entries() == 1 then
-                    cmp.confirm({ select = true })
-                else
-                    cmp.select_prev_item()
-                end
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-        ['<CR>'] = cmp.mapping.confirm({select = true }),
-        ['<C-e>'] = cmp.mapping.abort(),
-    },
-
-    snippet = {
-        expand = function(args)
-            local ls = require("luasnip")
-            if not ls then
-                return
-            end
-            ls.lsp_expand(args.body)
-        end,
-    },
-
-})
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -162,11 +103,13 @@ for name, config in pairs(servers) do
         handlers = vim.tbl_deep_extend("force", {}, default_handlers, config.handlers or {}),
         on_attach = on_attach,
         settings = config.settings,
+        init_options = config.init_options,
     })
 end
 
 vim.diagnostic.config({
     -- update_in_insert = true,
+    signs = false,
     virtual_text = true,
     underline = false,
     float = {
@@ -177,4 +120,51 @@ vim.diagnostic.config({
         header = "",
         prefix = "",
     },
+})
+
+-- Autoformat on save
+local fmt_group = vim.api.nvim_create_augroup('autoformat_cmds', {clear = true})
+
+local function setup_autoformat(event)
+  local id = vim.tbl_get(event, 'data', 'client_id')
+  local client = id and vim.lsp.get_client_by_id(id)
+  if client == nil then
+    return
+  end
+
+  vim.api.nvim_clear_autocmds({group = fmt_group, buffer = event.buf})
+
+  local buf_format = function(e)
+    vim.lsp.buf.format({
+      bufnr = e.buf,
+      async = false,
+      timeout_ms = 10000,
+    })
+  end
+
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    buffer = event.buf,
+    group = fmt_group,
+    desc = 'Format current buffer',
+    callback = buf_format,
+  })
+end
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'Setup format on save',
+  callback = setup_autoformat,
+})
+
+-- Enable inlay hints
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'Enable inlay hints',
+  callback = function(event)
+    local id = vim.tbl_get(event, 'data', 'client_id')
+    local client = id and vim.lsp.get_client_by_id(id)
+    if client == nil or not client.supports_method('textDocument/inlayHint') then
+      return
+    end
+
+    vim.lsp.inlay_hint.enable(true, {bufnr = event.buf})
+  end,
 })

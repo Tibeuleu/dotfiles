@@ -39,6 +39,10 @@ return require('packer').startup(function(use)
             -- LSP Support
             {'williamboman/mason.nvim'},
             {'williamboman/mason-lspconfig.nvim'},
+            -- DAP Support
+            {'mfussenegger/nvim-dap'},
+            {'mfussenegger/nvim-dap-python'},
+            {'jay-babu/mason-nvim-dap.nvim'},
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-nvim-lsp'},
