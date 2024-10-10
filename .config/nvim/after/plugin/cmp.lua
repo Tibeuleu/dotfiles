@@ -3,6 +3,9 @@
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
+-- luasnip for Tab completion
+local luasnip = require('luasnip')
+
 cmp.setup({
     -- No preselection
     preselect = 'None',
