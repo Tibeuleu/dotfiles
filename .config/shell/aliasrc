@@ -9,7 +9,7 @@ alias \
 	mkd="mkdir -pv" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
-	ffmpeg="ffmpeg -hide_banner"
+	ffmpeg="ffmpeg -hide_banner" \
 	cp="cp -iv" \
 
 # Colorize commands when possible.
@@ -45,3 +45,5 @@ alias \
 	ixpe="cd $HOME/IXPE_analysis/Code && clear && ls" \
 	foc="cd $HOME/FOC_reduction/Code && clear && ls" \
     config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=/home/tibeuleu" \
+	hlup="wg-quick up artixbook" \
+	hldown="wg-quick down artixbook"

@@ -11,5 +11,5 @@
 export STATUSBAR="i3blocks"
 
 . ~/.xprofile
-
+dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
 ssh-agent i3
