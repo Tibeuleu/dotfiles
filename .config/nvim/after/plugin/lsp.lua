@@ -16,7 +16,7 @@ require("fidget").setup({
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = {'bashls', 'clangd', 'fortls', 'julials', 'marksman', 'pylsp', 'ruff', 'rust_analyzer', 'texlab'},
+	ensure_installed = {'bashls', 'clangd', 'julials', 'marksman', 'pylsp', 'ruff', 'texlab'},
 })
 require('mason-nvim-dap').setup({
     ensure_installed = {'bash', 'cppdbg', 'python'},
@@ -26,7 +26,6 @@ require('dap-python').setup("python")
 local servers = {
     bashls = {},
     clangd = {},
-    fortls = {},
     julials = {},
     marksman = {},
     pylsp = {
@@ -63,7 +62,6 @@ local servers = {
             },
         },
     },
-    rust_analyzer = {},
     texlab = {},
 }
 

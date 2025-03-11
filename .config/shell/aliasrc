@@ -29,7 +29,7 @@ alias \
 	f="$FILE" \
 	e="$EDITOR" \
 	v="$EDITOR" \
-	p="doas pacman" \
+	pac="doas pacman" \
 	pu="doas pacman -Syu" \
 	yu="yay -Syu --aur" \
 	xi="doas xbps-install" \
