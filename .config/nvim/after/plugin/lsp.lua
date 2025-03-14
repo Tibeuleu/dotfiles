@@ -16,7 +16,7 @@ require("fidget").setup({
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = {'bashls', 'clangd', 'julials', 'marksman', 'pylsp', 'ruff', 'texlab'},
+	ensure_installed = {'bashls', 'clangd', 'marksman', 'pylsp', 'ruff', 'texlab'},
 })
 require('mason-nvim-dap').setup({
     ensure_installed = {'bash', 'cppdbg', 'python'},
@@ -26,12 +26,12 @@ require('dap-python').setup("python")
 local servers = {
     bashls = {},
     clangd = {},
-    julials = {},
     marksman = {},
     pylsp = {
         settings = {
             pylsp = {
                 plugins = {
+                    -- I don't want pylsp linter/formatter
                     autopep8 = { enabled = false, },
                     flake8 = { enabled = false, },
                     mccabe = { enabled = false, },
