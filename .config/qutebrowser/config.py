@@ -101,8 +101,6 @@ config.bind("dl", "hint links spawn wget -P Downloads {hint-url}")
 config.bind("dv", 'hint links spawn youtube-dl --add-metadata -i -o "~/Videos/[%(uploader)s] %(title)s.%(ext)s" {hint-url}')
 config.bind("da", 'hint links spawn youtube-dl --add-metadata -i -o "~/Music/%(title)s.%(ext)s" -x -f bestaudio/best {hint-url}')
 config.bind("dt", "hint links spawn wget -P .config/rtorrent/watch {hint-url}")
-config.bind("pt", "open -t -- {clipboard}")
-config.bind("pw", "open -w -- {clipboard}")
 config.bind("yc", "hint links yank")
 config.bind("yi", "hint images yank")
 config.bind("=", "zoom-in")
@@ -112,7 +110,7 @@ config.bind("sb", "config-cycle statusbar.show never always")
 config.bind("zz", "history-clear")
 config.bind("l", "tab-pin")
 config.bind(".", "download-cancel")
-# config.bind('pw', 'spawn --userscript ~/.local/bin/programs/qute-keepass -p ~/.local/profile-5.kdbx')
+config.bind("pw", "spawn --userscript ~/.local/share/qutebrowser/userscripts/qute-bitwarden --totp --auto-lock 60 {url}")
 
 # #################################################################
 # # COLORS
@@ -511,7 +509,7 @@ c.content.javascript.can_open_tabs_automatically = False
 ## Enable JavaScript.
 ## This setting supports URL patterns.
 ## [Bool]
-c.content.javascript.enabled = False
+c.content.javascript.enabled = True
 
 # Enable JavaScript.
 # [Bool]
@@ -1173,6 +1171,7 @@ c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?assist=off&q={}",
     "!aw": "https://wiki.archlinux.org/index.php/Special:Search?search={}",
     "!ads": "https://ui.adsabs.harvard.edu/search/q={}",
+    "!sci": "https://sci-hub.se/{}",
     "!g": "https://www.google.com/search?hl=en&q={}",
     "!w": "https://en.wikipedia.org/w/index.php?title=Special%3ASearch&search={}",
     "!y": "https://www.youtube.com/results?search_query={}&search=Search",
