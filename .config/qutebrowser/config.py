@@ -107,10 +107,14 @@ config.bind("=", "zoom-in")
 config.bind("+", "zoom")
 config.bind("pb", "open -p ")
 config.bind("sb", "config-cycle statusbar.show never always")
+config.bind("sj", "config-cycle content.javascript.enabled False True")
 config.bind("zz", "history-clear")
 config.bind("l", "tab-pin")
 config.bind(".", "download-cancel")
 config.bind("pw", "spawn --userscript ~/.local/share/qutebrowser/userscripts/qute-bitwarden --totp --auto-lock 60 {url}")
+config.bind("gb", 'hint links spawn --userscript ~/.local/share/qutebrowser/userscripts/qute-get-bib "{hint-url}"')
+config.bind("gb", 'hint links spawn --userscript ~/.local/share/qutebrowser/userscripts/qute-getbib "{hint-url}"')
+config.bind("gp", 'hint links spawn --userscript ~/.local/share/qutebrowser/userscripts/qute-scihub "{hint-url}"')
 
 # #################################################################
 # # COLORS
@@ -509,7 +513,7 @@ c.content.javascript.can_open_tabs_automatically = False
 ## Enable JavaScript.
 ## This setting supports URL patterns.
 ## [Bool]
-c.content.javascript.enabled = True
+c.content.javascript.enabled = False
 
 # Enable JavaScript.
 # [Bool]
