@@ -4,7 +4,7 @@ require("ibl").setup({
     indent = { char = " "},
     whitespace = { },
     scope = { char = "▎",
-        highlight = "IndentBlanklineContextChar",
+        -- highlight = "IndentBlanklineContextChar",
         show_start = false,
         show_end = false,
         include = { node_type = { python = { "if_statement",
