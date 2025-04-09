@@ -1176,7 +1176,6 @@ c.url.searchengines = {
     "!aw": "https://wiki.archlinux.org/index.php/Special:Search?search={}",
     "!ads": "https://ui.adsabs.harvard.edu/search/q={}",
     "!sci": "https://sci-hub.se/{}",
-    "!g": "https://www.google.com/search?hl=en&q={}",
     "!w": "https://en.wikipedia.org/w/index.php?title=Special%3ASearch&search={}",
     "!y": "https://www.youtube.com/results?search_query={}&search=Search",
 }

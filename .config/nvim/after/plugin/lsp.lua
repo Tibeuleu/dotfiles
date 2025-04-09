@@ -32,6 +32,7 @@ local servers = {
             pylsp = {
                 plugins = {
                     -- I don't want pylsp linter/formatter
+                    black = { enabled = false, },
                     autopep8 = { enabled = false, },
                     flake8 = { enabled = false, },
                     mccabe = { enabled = false, },
@@ -47,11 +48,13 @@ local servers = {
         filetypes = { "python" },
         init_options = {
             settings = {
-                -- configuration = "<path_to_custom_ruff_toml>",  -- Custom config for ruff to use
+                configuration = "~/.local/share/nvim/ruff.toml",  -- Custom config for ruff to use
                 exclude = { "__about__.py" },  -- Files to be excluded by ruff checking
                 lineLength = 160,  -- Line length to pass to ruff checking and formatting
                 organizeImports = true,
-                preview = false,  -- Whether to enable the preview style linting and formatting.
+                format = {
+                    preview = false,  -- Whether to enable the preview style linting and formatting.
+                },
                 lint = {
                     enable = true,  -- Enable linting
                     -- select = { "F" },  -- Rules to be enabled by ruff

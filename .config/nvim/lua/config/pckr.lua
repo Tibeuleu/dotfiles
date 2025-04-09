@@ -1,39 +1,48 @@
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+local function bootstrap_pckr()
+  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
 
-    use {
+  if not (vim.uv or vim.loop).fs_stat(pckr_path) then
+    vim.fn.system({
+      'git',
+      'clone',
+      "--filter=blob:none",
+      'https://github.com/lewis6991/pckr.nvim',
+      pckr_path
+    })
+  end
+
+  vim.opt.rtp:prepend(pckr_path)
+end
+
+bootstrap_pckr()
+
+require('pckr').add{
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.1',
         -- or branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
-    }
-    use "ellisonleao/gruvbox.nvim"
-
-    use {
+    };
+    "ellisonleao/gruvbox.nvim";
+    {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
-    }
-    use 'nvim-treesitter/playground'
-    use {
+    };
+    {
         'ThePrimeagen/harpoon',
         requires = { {'nvim-lua/plenary.nvim'} }
-    }
-    use 'mbbill/undotree'
-    use 'tpope/vim-fugitive'
-    use 'airblade/vim-gitgutter'
-
-    use 'lukas-reineke/indent-blankline.nvim'
-
-    use 'JoosepAlviste/nvim-ts-context-commentstring'
-    use 'numToStr/Comment.nvim'
-
-    use 'lervag/vimtex'
-
-    use {
+    };
+    'mbbill/undotree';
+    'tpope/vim-fugitive';
+    'airblade/vim-gitgutter';
+    'lukas-reineke/indent-blankline.nvim';
+    'JoosepAlviste/nvim-ts-context-commentstring';
+    'numToStr/Comment.nvim';
+    'lervag/vimtex';
+    {
         'neovim/nvim-lspconfig',
         requires = {
             -- LSP Support
@@ -57,7 +66,6 @@ return require('packer').startup(function(use)
             -- Utils
             {'j-hui/fidget.nvim'},
             {'folke/neodev.nvim'}
-        }
-    }
-
-end)
+        };
+    };
+}

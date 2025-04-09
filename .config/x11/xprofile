@@ -17,7 +17,7 @@ remaps &		# run the remaps script, switching caps/esc and more; check it for mor
 setbg &			# set the background with the `setbg` script
 mpd &			# music player daemon-you might prefer it as a service though
 dunst &			# dunst for notifications
-unclutter &	# Remove mouse when idle
+unclutter &     # Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 # setxkbmap fr & 		# set the keyboard layout to azerty (comment out if set in /etc/X11/xorg.conf.d/00-keyboard.conf)
 # xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/Xresources &	# Uncomment to use Xresources colors/settings on startup
