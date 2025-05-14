@@ -41,7 +41,15 @@ require('pckr').add{
     'lukas-reineke/indent-blankline.nvim';
     'JoosepAlviste/nvim-ts-context-commentstring';
     'numToStr/Comment.nvim';
-    'lervag/vimtex';
+    {
+        'lervag/vimtex';
+        config = function()
+            vim.cmd([[
+              let g:vimtex_view_method = 'zathura_simple'
+              let g:vimtex_view_automatic = 0
+            ]])
+        end,
+    };
     {
         'neovim/nvim-lspconfig',
         requires = {

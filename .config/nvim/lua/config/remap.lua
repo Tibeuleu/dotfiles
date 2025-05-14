@@ -8,6 +8,7 @@ local M = {}
 
 -- Set leader key to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = ";"
 
 -- Set Explorer keybind to leader-"e"
 vim.keymap.set("n","<leader>e", vim.cmd.Ex)
