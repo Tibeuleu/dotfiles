@@ -17,6 +17,7 @@ require("fidget").setup({
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {'bashls', 'clangd', 'marksman', 'pylsp', 'ruff', 'texlab'},
+    automatic_enable = false,
 })
 require('mason-nvim-dap').setup({
     ensure_installed = {'bash', 'cppdbg', 'python'},
