@@ -13,6 +13,7 @@
 # 	! pidof pulseaudio >/dev/null &&
 # 	setsid -f pulseaudio --start >/dev/null 2>&1
 
+[[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/x11/Xresources ]] && xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/Xresources
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 setbg &			# set the background with the `setbg` script
 mpd &			# music player daemon-you might prefer it as a service though

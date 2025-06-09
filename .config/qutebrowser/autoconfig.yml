@@ -9,4 +9,4 @@ settings:
   content.javascript.enabled:
     global: true
   statusbar.show:
-    global: never
+    global: always

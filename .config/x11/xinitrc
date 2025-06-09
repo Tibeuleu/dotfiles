@@ -9,7 +9,6 @@
 # source them here with the line below.
 
 export STATUSBAR="i3blocks"
-[[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/x11/Xresources ]] && xrdb -merge -I${XDG_CONFIG_HOME:-$HOME/.config}/x11/Xresources
 . ~/.xprofile
 dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
 ssh-agent i3

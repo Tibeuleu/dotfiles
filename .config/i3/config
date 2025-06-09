@@ -1,5 +1,4 @@
 # vim: filetype=i3
-# File originally by Luke Smith <https://lukesmith.xyz>
 
 # This config file will use environmental variables such as $BROWSER and $TERMINAL.
 # You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
@@ -71,6 +70,7 @@ bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec -
 
 bindsym $mod+w			exec --no-startup-id $BROWSER
 bindsym $mod+Shift+w		exec $term -e nmtui
+bindsym $mod+Ctrl+w		exec --no-startup-id qutebrowser
 
 bindsym $mod+r			exec --no-startup-id element-desktop
 bindsym $mod+Shift+r		exec --no-startup-id dmenuunicode
@@ -95,6 +95,7 @@ bindsym $mod+Shift+p		exec --no-startup-id mpc stop
 
 bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 bindsym $mod+Shift+a		exec $term -e alsamixer
+bindsym $mod+Ctrl+a		exec $term -e pulsemixer
 
 bindsym $mod+s			exec --no-startup-id signal-desktop --use-tray-icon
 bindsym $mod+Shift+s		exec --no-startup-id slack
@@ -273,11 +274,11 @@ bindsym Shift+Print 		exec --no-startup-id maimpick
 bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Shift+F12		exec --no-startup-id "killall screenkey || screenkey"
 bindsym $mod+Delete		exec $stoprec
-bindsym XF86Launch1		exec --no-startup-id xset dpms force off
+#bindsym XF86Launch1		exec --no-startup-id xset dpms force off
 
 # #---Extra XF86 Keys---# #
 bindsym XF86AudioMute			exec --no-startup-id amixer sset Master toggle && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMicMute		exec --no-startup-id amixer sset Capture toggle
+#bindsym XF86AudioMicMute		exec --no-startup-id amixer sset Capture toggle
 bindsym XF86AudioLowerVolume	exec --no-startup-id amixer sset Master 5%- && pkill -RTMIN+10 i3blocks
 bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id amixer sset Master 1%- && pkill -RTMIN+10 i3blocks
 bindsym Control+XF86AudioLowerVolume	exec --no-startup-id amixer sset Master 10%- && pkill -RTMIN+10 i3blocks
@@ -290,9 +291,9 @@ bindsym Control+XF86MonBrightnessDown	exec --no-startup-id xbacklight -time 1000
 bindsym XF86MonBrightnessUp		exec --no-startup-id xbacklight -time 500 -steps 5 -inc 5
 bindsym Shift+XF86MonBrightnessUp	exec --no-startup-id xbacklight -time 100 -steps 1 -inc 1
 bindsym Control+XF86MonBrightnessUp	exec --no-startup-id xbacklight -time 1000 -steps 10 -inc 10
-bindsym XF86Display		exec --no-startup-id displayselect
-bindsym XF86WLAN		exec $nettoggle
-bindsym XF86Bluetooth		exec doas rfkill unblock bluetooth | $term bluetoothctl
+#bindsym XF86Display		exec --no-startup-id displayselect
+#bindsym XF86WLAN		exec $nettoggle
+#bindsym XF86Bluetooth		exec doas rfkill unblock bluetooth | $term bluetoothctl
 ##bindsym XF86Copy		exec
 ##bindsym XF86Open		exec
 ##bindsym XF86Paste		exec
@@ -307,22 +308,22 @@ bindsym XF86PowerOff		exec --no-startup-id sysact
 ##bindsym XF86Xfer		exec
 ##bindsym XF86WWW		exec --no-startup-id $BROWSER
 ##bindsym XF86DOS		exec
-bindsym XF86ScreenSaver		exec exec --no-startup-id slock
+#bindsym XF86ScreenSaver		exec exec --no-startup-id slock
 ##bindsym XF86RotateWindows	exec
 ##bindsym XF86TaskPane		exec
 ##bindsym XF86Favorites		exec
 ##bindsym XF86MyComputer	exec $term -e lf
 ##bindsym XF86Back		exec
 ##bindsym XF86Forward		exec
-bindsym XF86Eject		exec --no-startup-id dmenuumount
-bindsym XF86AudioNext		exec --no-startup-id mpc next
-bindsym XF86AudioPlay		exec --no-startup-id mpc toggle
-bindsym XF86AudioPrev		exec --no-startup-id mpc prev
-bindsym XF86AudioStop		exec --no-startup-id mpc toggle
-##bindsym XF86AudioRecord		exec --no-startup-id $term -e ncmpcpp
-bindsym XF86AudioRewind		exec --no-startup-id mpc seek -10
-bindsym XF86AudioForward	exec --no-startup-id mpc seek +10
-bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
+#bindsym XF86Eject		exec --no-startup-id dmenuumount
+#bindsym XF86AudioNext		exec --no-startup-id mpc next
+#bindsym XF86AudioPlay		exec --no-startup-id mpc toggle
+#bindsym XF86AudioPrev		exec --no-startup-id mpc prev
+#bindsym XF86AudioStop		exec --no-startup-id mpc toggle
+#bindsym XF86AudioRecord		exec --no-startup-id $term -e ncmpcpp
+#bindsym XF86AudioRewind		exec --no-startup-id mpc seek -10
+#bindsym XF86AudioForward	exec --no-startup-id mpc seek +10
+#bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 ##bindsym XF86Phone		exec
 ##bindsym XF86Tools		exec
 ##bindsym XF86HomePage		exec $BROWSER
@@ -340,11 +341,11 @@ bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 ##bindsym XF86Launch7		exec
 ##bindsym XF86Launch8		exec
 ##bindsym XF86Launch9		exec
-bindsym XF86TouchpadToggle	exec --no-startup-id toggletouchpad
+#bindsym XF86TouchpadToggle	exec --no-startup-id toggletouchpad
 #bindsym XF86TouchpadOn		exec --no-startup-id synclient TouchpadOff=0
 #bindsym XF86TouchpadOff		exec --no-startup-id synclient TouchpadOff=1
-bindsym XF86Suspend		exec --no-startup-id lockscreen
-bindsym XF86Close		kill
+#bindsym XF86Suspend		exec --no-startup-id lockscreen
+#bindsym XF86Close		kill
 #bindsym XF86WebCam		exec --no-startup-id camtoggle
 #bindsym XF86Mail		exec --no-startup-id thunderbird
 #bindsym XF86Messenger		exec $term -e weechat
