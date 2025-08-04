@@ -104,7 +104,7 @@ bindsym $mod+d			exec --no-startup-id dmenu_run
 bindsym $mod+Shift+d		exec --no-startup-id discord
 
 bindsym $mod+t			exec --no-startup-id thunderbird
-bindsym $mod+Shift+t		exec --no-startup-id telegram-desktop
+bindsym $mod+Shift+t		exec --no-startup-id Telegram
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
 mode "$freeze" { bindsym $mod+Shift+f mode "default"

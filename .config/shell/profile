@@ -35,6 +35,8 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+# Weather report
+export LOCATION="Strasbourg"
 
 # Xspec and IXPEobssim
 export HEADAS="$HOME/.local/lib/heasoft-6.33/x86_64-pc-linux-gnu-libc2.39/"
