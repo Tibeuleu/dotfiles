@@ -70,10 +70,10 @@ local servers = {
         filetypes = { "tex", "bib" },
         settings = {
             texlab = {
-                auxDirectory = ".",
                 bibtexFormatter = "texlab",
                 build = {
                     args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                    auxDirectory = ".",
                     executable = "latexmk",
                     forwardSearchAfter = false,
                     onSave = false
@@ -83,10 +83,13 @@ local servers = {
                     onOpenAndSave = false
                 },
                 diagnosticsDelay = 300,
-                formatterLineLength = -1,
-                forwardSearch = {
-                    args = {}
+                diagnostics = {
+                    ignoredPatterns = {
+                        "Unused label",
+                        -- "Unused entry",
+                        },
                 },
+                formatterLineLength = -1,
                 latexFormatter = "latexindent",
                 latexindent = {
                     modifyLineBreaks = false
