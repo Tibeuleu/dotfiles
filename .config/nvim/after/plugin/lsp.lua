@@ -130,7 +130,7 @@ end
 
 -- Iterate over our servers and set them up
 for name, config in pairs(servers) do
-    require("lspconfig")[name].setup({
+    vim.lsp.config(name,{
         capabilities = default_capabilities,
         filetypes = config.filetypes,
         handlers = vim.tbl_deep_extend("force", {}, default_handlers, config.handlers or {}),
