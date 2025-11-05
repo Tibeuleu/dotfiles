@@ -1,5 +1,6 @@
 vim.g.vimtex_view_general_viewer = "zathura"
 vim.g.vimtex_view_method = "zathura_simple"
+vim.g.vimtex_view_automatic = 0
 -- vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
 -- vim.g.vimtex_view_zathura_options = "-reuse-instance file:@pdf\\#src:@line:@col@tex"
 
