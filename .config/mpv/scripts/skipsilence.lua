@@ -3,6 +3,19 @@
 --
 -- Main repository: https://codeberg.org/ferreum/mpv-skipsilence/
 --
+-- Based on the script https://gist.github.com/bitingsock/e8a56446ad9c1ed92d872aeb38edf124
+--
+-- This is inspired by the NewPipe app's built-in "Fast-forward during silence"
+-- feature.
+--
+-- Note: In mpv version 0.36 and below, the `scaletempo2` filter (default since
+-- mpv version 0.34) caused audio-video de-synchronization when changing speed
+-- a lot. This has been fixed in mpv 0.37. See [mpv issue
+-- #12028](https://github.com/mpv-player/mpv/issues/12028). Small, frequent
+-- speed changes instead of large steps may help to reduce this problem. The
+-- scaletempo and rubberband filters didn't have this problem, but have
+-- different audio quality characteristics.
+--
 -- Features:
 -- - Parameterized speedup ramp, allowing profiles for different kinds of
 --   media (ramp_*, speed_*, startdelay options).
@@ -93,10 +106,7 @@
 -- 'change-list', 'Key/value list options', and 'Configuration' for the
 -- 'script-opts/osc.conf' documentation.
 -- Use the prefix 'skipsilence' (unless the script was renamed).
-local mp = require "mp"
-local opt = require "mp.options"
-
-local options = {
+local opts = {
     -- Whether skipsilence should be enabled by default. Can also be changed
     -- at runtime and reflects the current enabled state.
     enabled = false,
@@ -258,12 +268,10 @@ local options = {
     -- If 'off', the script will override the speed during silence.
     -- Note: this option is unreliable in cases where the script changes speed
     -- at the exact same time. Prefer the adjust-speed message instead.
-    apply_speed_change = "add",
+    apply_speed_change = "off",
 
     debug = false,
 }
-
-opt.read_options(options)
 
 local is_enabled = false
 local base_speed = 1
