@@ -24,7 +24,7 @@ alias \
 	ka="killall" \
 	g="git" \
 	trem="transmission-remote" \
-	YT="youtube-viewer" \
+	YT="pipe-viewer" \
 	sdn="doas shutdown -h now" \
 	f="$FILE" \
 	e="$EDITOR" \

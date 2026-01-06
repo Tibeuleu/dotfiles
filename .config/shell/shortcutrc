@@ -11,6 +11,7 @@ alias cac="cd ${XDG_CACHE_HOME:-$HOME/.cache} && ls -a" \
     m="cd ${XDG_MUSIC_DIR:-$HOME/Music} && ls -a" \
     pp="cd ${XDG_PICTURES_DIR:-$HOME/Pictures} && ls -a" \
     vv="cd ${XDG_VIDEOS_DIR:-$HOME/Videos} && ls -a" \
+    L="cd ${XDG_LATEX_DIR:-$HOME/Documents/LaTeX/}Projects && ls -a" \
     t="cd ${XDG_THESIS_DIR:-$HOME/Documents/These} && ls -a" \
     p="cd ${XDG_PAPERS_DIR:-$HOME/Documents/These/Papers} && ls -a" \
     T="cd ${XDG_PAPERS_DIR:-$HOME/Documents/These/Papers/Thesis_Barnouin/} && vim ." \

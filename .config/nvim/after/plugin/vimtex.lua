@@ -6,11 +6,11 @@ vim.g.vimtex_view_automatic = 0
 
 vim.g.vimtex_compiler_latexmk = {
     options = {
-      "-verbose",
-      "-file-line-error",
-      "-synctex=1",
-      "-interaction=nonstopmode",
-      "-shell-escape",
+        "-verbose",
+        "-file-line-error",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-shell-escape",
     }
 }
 
@@ -25,6 +25,8 @@ vim.g.vimtex_toc_config = {
 }
 
 vim.g.vimtex_quickfix_ignore_filters = {
+    "Underfull \\\\vbox",
+    "Overfull \\\\vbox",
     "Underfull \\\\hbox",
     "Overfull \\\\hbox",
     -- "LaTeX Warning: .\\+ float specifier changed to",
