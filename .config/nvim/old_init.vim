@@ -11,7 +11,7 @@
 	autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.mdx': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 	map <leader>v :VimwikiIndex<CR>
 	let g:vimwiki_list = [{'path': '~/.local/share/nvim/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
@@ -36,6 +36,11 @@
 " Recompile i3/i3blocks on config edit.
 	autocmd BufWritePost ~/.config/i3/config !i3 restart
 	autocmd BufWritePost ~/.config/i3blocks/config !i3 restart
+
+" Remove checkhealth warning for optionnal providers
+   let g:loaded_node_provider = 0
+   let g:loaded_perl_provider = 0
+   let g:loaded_ruby_provider = 0
 
 " Function for toggling the bottom statusbar:
 let s:hidden_all = 0

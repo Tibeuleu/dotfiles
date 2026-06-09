@@ -106,8 +106,8 @@ local servers = {
 
 -- Default handlers for LSP
 local default_handlers = {
-    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded", focus = false }),
+    ["textDocument/hover"] = vim.lsp.buf.hover({ border = "rounded" }),
+    ["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({ border = "rounded", focus = false }),
 }
 
 -- nvim-cmp supports additional completion capabilities
