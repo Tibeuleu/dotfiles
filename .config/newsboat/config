@@ -2,6 +2,7 @@
 auto-reload yes
 prepopulate-query-feeds yes
 confirm-mark-feed-read no
+cleanup-on-quit yes
 
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 
