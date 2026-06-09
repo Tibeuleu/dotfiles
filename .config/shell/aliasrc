@@ -42,8 +42,10 @@ alias \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
 	scrcpy="scrcpy --shortcut-mod=lctrl" \
-	ixpe="cd $HOME/IXPE_analysis/Code && clear && ls" \
-	foc="cd $HOME/FOC_reduction/Code && clear && ls" \
-    config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=/home/tibeuleu" \
-	hlup="wg-quick up artixbook" \
-	hldown="wg-quick down artixbook"
+	ixpe="cd $HOME/Projects/IXPE_Analysis && source .ixpe/bin/activate && clear && ls" \
+	foc="cd $HOME/Projects/FOC_Reduction && source .foc/bin/activate && clear && ls" \
+	mcmc="cd $HOME/Projects/SimLens && source .mcmc/bin/activate && clear && ls" \
+	dsu="cd $HOME/Projects/dsutils && source .dsu/bin/activate && clear && ls" \
+    config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME" \
+	hlup="wg-quick up homelab" \
+	hldown="wg-quick down homelab"
