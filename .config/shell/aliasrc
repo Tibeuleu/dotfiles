@@ -7,7 +7,7 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	mkd="mkdir -pv" \
-	yt="youtube-dl --add-metadata -i" \
+	yt="yt-dlp --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner" \
 	cp="cp -iv" \
@@ -23,18 +23,12 @@ alias \
 alias \
 	ka="killall" \
 	g="git" \
-	trem="transmission-remote" \
 	YT="pipe-viewer" \
-	sdn="doas shutdown -h now" \
 	f="$FILE" \
 	e="$EDITOR" \
 	v="$EDITOR" \
-	pac="doas pacman" \
-	pu="doas pacman -Syu" \
-	yu="yay -Syu --aur" \
-	xi="doas xbps-install" \
-	xr="doas xbps-remove -R" \
-	xq="xbps-query" \
+	pac="sudo apt" \
+	pu="snap refresh && sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y" \
 	z="zathura"
 
 alias \
@@ -44,8 +38,9 @@ alias \
 	scrcpy="scrcpy --shortcut-mod=lctrl" \
 	ixpe="cd $HOME/Projects/IXPE_Analysis && source .ixpe/bin/activate && clear && ls" \
 	foc="cd $HOME/Projects/FOC_Reduction && source .foc/bin/activate && clear && ls" \
+	jwst="cd $HOME/Projects/JWST_Nierenberg && source .jwst/bin/activate && clear && ls" \
 	mcmc="cd $HOME/Projects/SimLens && source .mcmc/bin/activate && clear && ls" \
 	dsu="cd $HOME/Projects/dsutils && source .dsu/bin/activate && clear && ls" \
+	paper="cd $HOME/Projects/LaTeX_projects/Papers && clear && nvim ." \
+	pres="cd $HOME/Projects/LaTeX_projects/Presentations && clear && nvim ." \
     config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME" \
-	hlup="wg-quick up homelab" \
-	hldown="wg-quick down homelab"

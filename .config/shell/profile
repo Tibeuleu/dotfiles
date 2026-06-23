@@ -6,11 +6,11 @@
 # to clean up.
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':'):$HOME/.local/lib/bin"
+export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':'):$HOME/.local/share/cargo/bin:$HOME/.local/lib/bin"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="gnome-terminal"
 export BROWSER="librewolf"
 export READER="zathura"
 
@@ -36,23 +36,24 @@ export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 # Weather report
-export LOCATION="Strasbourg"
+export LOCATION="Liège"
 
 # Xspec and IXPEobssim
-export HEADAS="$HOME/.local/lib/heasoft-6.33/x86_64-pc-linux-gnu-libc2.39/"
+export HEADAS="$HOME/.local/lib/heasoft-6.36/x86_64-pc-linux-gnu-libc2.35"
+source $HEADAS/headas-init.sh
 export CALDB="https://heasarc.gsfc.nasa.gov/FTP/caldb"
-export CALDBCONFIG="$HOME/.local/lib/heasoft-6.33/caldb.config"
-export CALDBALIAS="$HOME/.local/lib/heasoft-6.33/alias_config.fits"
-export TINYTIM="$HOME/.local/share/tinytim-7.5/"
-export IXPEOBSSIM_ROOT="$HOME/IXPE_analysis/ixpeobssim"
+export CALDBCONFIG="$HOME/.local/lib/heasoft-6.36/caldb.config"
+export CALDBALIAS="$HOME/.local/lib/heasoft-6.36/alias_config.fits"
+# # export TINYTIM="$HOME/.local/share/tinytim-7.5/"
+export IXPEOBSSIM_ROOT="$HOME/IXPE_Analysis/.ixpe/lib/python3.14/site-packages/ixpeobssim"
 export IXPEOBSSIM_DATA="/tmp/ixpeobssimdata"
 export IXPEOBSSIM_AUXFILES="/tmp/ixpeobssimauxfiles"
 
 # Other program settings:
-export DICS="/usr/share/stardict/dic/"
-export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
-export DOAS_ASKPASS="$HOME/.local/bin/dmenupass"
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+# export DICS="/usr/share/stardict/dic/"
+# export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+# export DOAS_ASKPASS="$HOME/.local/bin/dmenupass"
+# export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
@@ -62,12 +63,12 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
-export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
-export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
-export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
-export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
+# export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
+# export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+# export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
+# export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
-export $(dbus-launch)
+# export $(dbus-launch)
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
@@ -142,10 +143,10 @@ ex=🎯:\
 *.java=♨:\
 "
 
-[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
+# [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
-# Start graphical server on tty1 if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
+# # Start graphical server on tty1 if not already running.
+# [ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
 
-# Switch escape and caps if tty and no passwd required:
-doas -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
+# # Switch escape and caps if tty and no passwd required:
+# doas -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
