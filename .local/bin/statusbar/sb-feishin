@@ -1,0 +1,19 @@
+#!/bin/sh
+
+filter() { playerctl -p Feishin metadata --format $'{{status}}\t{{artist}} - {{title}}' | sed "s/Paused\\t\(.*\)/\1\ ⏸/g;s/Playing\\t\(.*\)/\1/g" | paste -sd ' ' -| awk '{ if($0>0) print " " $0}';}
+
+pidof -x sb-feishinup >/dev/null 2>&1 || sb-feishinup >/dev/null 2>&1 &
+
+case $BLOCK_BUTTON in
+    1) playerctl -p Feishin play-pause | filter ;;
+    2) playerctl -p Feishin stop ;;
+    3) playerctl -p Feishin status | filter ; notify-send "Feishin module" "\- Shows playing title.
+- ⏸ when paused.
+- Left click pauses.
+- Middle click stops.
+- Scroll changes track.";;  # right click, pause/unpause
+    4) playerctl -p Feishin previous ;;
+    5) playerctl -p Feishin next ;;
+	6) playerctl -p Feishin status | filter ; "$TERMINAL" -e "$EDITOR" "$0" ;;
+	*) playerctl -p Feishin status | filter ;;
+esac

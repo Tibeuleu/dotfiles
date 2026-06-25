@@ -11,24 +11,33 @@ if { $argc == 0 } { exit 0 }
 
 # treat all arguments as command input
 set cmd [lrange $argv 0 end];
+set timeout 3
 
 # read askpass from env or fallback to dmanu_pass ()
 if {[info exists ::env(DOAS_ASKPASS)]} {
 	set askpass "$::env(DOAS_ASKPASS)"
 } else {
-	set askpass "dmenu -P -p password"
+	set askpass "(doas) password:"
 }
 
-# read password from user
-set pwd [exec {*}$askpass]
+# Safe read password from user
+if { [catch {set pwd [exec {*}$askpass "(doas) password:"]} err]} {
+    puts stderr "askpass failed: $err"
+    exit 1
+}
 
-# spawn doas operation
+# Spawn doas operation
 spawn doas {*}$cmd
 
-# send password and execute command
-expect "doas*password:" {
-	send -- "$pwd\r"
-	expect \r
-	log_user 1
-	expect eof
+# Send password and execute command
+expect {
+    "doas*password:" { send -- "$pwd\r" }
+    "Password:" { send -- "$pwd\r" }
+	timeout {
+        puts stderr "doas timeout - no password prompt"
+        exit 1
+    }
 }
+
+expect eof
+log_user 1

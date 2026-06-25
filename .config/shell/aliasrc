@@ -7,7 +7,7 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	mkd="mkdir -pv" \
-	yt="youtube-dl --add-metadata -i" \
+	yt="yt-dlp --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner" \
 	cp="cp -iv" \
@@ -45,6 +45,7 @@ alias \
 	ixpe="cd $HOME/Projects/IXPE_Analysis && source .ixpe/bin/activate && clear && ls" \
 	foc="cd $HOME/Projects/FOC_Reduction && source .foc/bin/activate && clear && ls" \
 	mcmc="cd $HOME/Projects/SimLens && source .mcmc/bin/activate && clear && ls" \
+    P="cd $HOME/Documents/LaTeX/Papers/MIR_lensing/ && nvim ."\
 	dsu="cd $HOME/Projects/dsutils && source .dsu/bin/activate && clear && ls" \
     config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME" \
 	hlup="wg-quick up homelab" \

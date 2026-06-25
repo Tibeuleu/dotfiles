@@ -11,4 +11,5 @@
 export STATUSBAR="i3blocks"
 . ~/.xprofile
 dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
+gnome-keyring-daemon --start --components=secrets
 ssh-agent i3

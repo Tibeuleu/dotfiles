@@ -2,6 +2,10 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+#[sb-feishin]
+#interval=30
+#signal=11
+
 [sb-music]
 interval=30
 signal=11
