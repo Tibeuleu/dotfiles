@@ -7,19 +7,15 @@
 # Add this when you include flatpak in your system
 # dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
-# Autostart Pulseaudio if installed and not already started by init.
-# Chromium/Brave doesn't automatically start Pulse for some reason.
-# [ -x /usr/bin/pulseaudio ] &&
-# 	! pidof pulseaudio >/dev/null &&
-# 	setsid -f pulseaudio --start >/dev/null 2>&1
+xrandr --dpi 96		# Set DPI. User may want to use a larger number for larger screens.
+setbg ;			# set the background with the `setbg` script
+# xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 
-[[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/x11/Xresources ]] && xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/Xresources
-remaps &		# run the remaps script, switching caps/esc and more; check it for more info
-setbg &			# set the background with the `setbg` script
-# mpd &			# music player daemon-you might prefer it as a service though
-dunst &			# dunst for notifications
-unclutter &     # Remove mouse when idle
-xcompmgr &		# xcompmgr for transparency
-# setxkbmap fr & 		# set the keyboard layout to azerty (comment out if set in /etc/X11/xorg.conf.d/00-keyboard.conf)
-# redshift &		# adjust screen temperature based on daytime
-# . $HEADAS/headas-init.sh	# set XSPEC into PATH
+autostart="mpd xcompmgr dunst unclutter remapd"
+
+for program in $autostart; do
+	pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1
+
+# Ensure that xrdb has finished running before moving on to start the WM/DE.
+[ -n "$xrdbpid" ] && wait "$xrdbpid"

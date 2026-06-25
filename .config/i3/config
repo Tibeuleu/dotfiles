@@ -34,12 +34,14 @@ for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
+font pango:DejaVu Sans Mono 10
+
 bar {
-	font pango:mono 10
-	status_command i3blocks
 	position top
 	mode dock
 	modifier None
+	font pango:mono 10
+	status_command i3blocks
 }
 
 # #---Basic Bindings---# #

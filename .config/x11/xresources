@@ -1,8 +1,19 @@
+!! Manual DPI setting
+Xft.dpi: 96
+
+! These might also be useful depending on your monitor and personal preference:
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
 !! Transparency (0-1):
 *.alpha: 0.8
 
 !! Set a default font and font size as below:
-*.font: monospace:size=10
+*.font: monospace:size=10:antialias=true:autohint=true;
 
 /* name		dark	light */
 /* black	0	8 */
