@@ -1,7 +1,0 @@
-[BIBMANAGER]
-style = gruvbox-dark
-text_editor = nvim
-paper = A4
-ads_token =
-ads_display = 20
-home = HOME/.config/bibmanager/
